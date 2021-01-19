@@ -5,7 +5,11 @@
 
 .btn-disabled,
 .btn-disabled[disabled] {
-  opacity: .4;
   cursor: default !important;
   pointer-events: none;
+}
+
+.project-name a {
+    color: #ffffff;
+    text-decoration: none;
 }
