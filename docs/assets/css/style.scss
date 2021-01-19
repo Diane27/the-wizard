@@ -1,0 +1,15 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+.btn-disabled,
+.btn-disabled[disabled] {
+  cursor: default !important;
+  pointer-events: none;
+}
+
+.project-name a {
+    color: #ffffff;
+    text-decoration: none;
+}

@@ -6,11 +6,11 @@ title:  Team
 # {{ page.title }}
 
 
-## USER 1
-***UCI Net ID***: ucinetid1
+## Adithya Vinayash Shanmugam
+***UCI Net ID***: avshanmu
 
-## USER 2
-***UCI Net ID***: ucinetid2
+## Marie Diane Tobit
+***UCI Net ID***: mtobitch
 
-## USER 3
+## Vishaal Yalamanchali
 ***UCI Net ID***: ucinetid3
