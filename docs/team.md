@@ -13,4 +13,4 @@ title:  Team
 ***UCI Net ID***: mtobitch
 
 ## Vishaal Yalamanchali
-***UCI Net ID***: ucinetid3
+***UCI Net ID***: vyalaman
