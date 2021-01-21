@@ -3,7 +3,7 @@ layout: default
 title:  Home
 ---
 
-Source code: https://github.com/Diane27/crispy-bread-and-garlic-chicken (_fix this_)
+Source code: https://github.com/Diane27/crispy-bread-and-garlic-chicken
 
 Reports:
 
