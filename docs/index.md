@@ -14,4 +14,4 @@ We want to use some of the popular hand signs (see below) and be able to transla
 ![Hand Gestures](assets/hand-signs.jpg)
 
 We managed to achieve this in three steps
-{% include images.html img1="assets/hand-capture.png" img2="assets/hand-recognition.png" img3="assets/minecraft-action.png" description1="Hand capture through webcam" description2="Hand recognition by our model" description3="Action performed in Minecraft"%}
+{% include images.html img1="assets/hand_capture.png" img2="assets/hand-recognition.png" img3="assets/minecraft-action.png" description1="Hand capture through webcam" description2="Hand recognition by our model" description3="Action performed in Minecraft"%}
