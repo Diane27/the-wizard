@@ -56,4 +56,9 @@
 /* Style for images on index.md */
 .images {
   display: inline;
+  img {
+    border-radius: 0%;
+    width: 50%;
+    height: auto;
+  }
 }
