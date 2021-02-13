@@ -54,11 +54,10 @@
 }
 
 /* Style for images on index.md */
-.images {
-  display: inline;
+figure {
+  display: inline-block;
+  margin: 20px;
   img {
-    border-radius: 0%;
-    width: 50%;
-    height: auto;
+    vertical-align: top;
   }
 }
