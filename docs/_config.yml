@@ -18,8 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: 'Crispy Bread and Garlic Chicken'
-email: your-email@example.com
+title:    'Crispy Bread and Garlic Chicken - Taking Cars from Real Life into The Minecraft Overworld'
 subtitle: 'CS 175: Project in AI (in Minecraft)'
 
 
