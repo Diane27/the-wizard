@@ -1,2 +1,2 @@
-# crispy-bread-and-garlic-chicken
+# the-wizard
 CS175 Project
