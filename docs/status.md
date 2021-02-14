@@ -5,6 +5,8 @@ title:  Status
 
 # {{ page.title }}
 
+<iframe src="https://spark.adobe.com/video/3di9v2kcH6UWh/embed"  width="960" height="540" frameborder="0" allowfullscreen></iframe>
+
 ## Project Summary:
 The Wizard attempts to control a Malmo agent through Naruto hand signs. In Naruto, there are several hand signs (tiger, bird, dog, etc.) that correspond to a certain spell. The Wizard will take in live camera input, utilize deep learning to classify that input as one of the 12 different Naruto hand signs, and instruct the agent to execute a corresponding action. Our final goal for this project is to build a model that can accurately classify not only static gestures, but continuous hand movements as well. However, for this first checkpoint, our model is only equipped to classify static images. 
 
@@ -12,6 +14,21 @@ The Wizard attempts to control a Malmo agent through Naruto hand signs. In Narut
 Throughout the development of The Wizard, we wanted to create a functional deep learning model with minimal overhead and the ease of simple design. Our output 
 
 ## Evaluation:
+One method of evaluation would be to test our models performance in different settings. Throughout the creation of the model, we noticed that models trained in one persons room with different camera specifications would result in different outputs on other peoples machines. To nullify the solution our code allows the creation of test and training data.
+
+<img src="assets/hand_capture"/>
+
+In the figure above, we demonstrate one way we counteract this issue, as the image in the box is a fireball and we have used black gloves to test and see how this works within the model. By training the model on varying data, we can determine the loss and accuracy of the model per epoch. 
+* Currently there are five different complex hand signals that we use to determine (jutsu’s) or “commands” for Steve to perform.
+* Bird, Tiger, Horse, Dragon, Fireball (Sasuke’s signature ability).
+
+<img src="assets/hand-signs"/>
+
+* In the future we plan to implement more methods and jutsu’s into our network. 
+* In addition, we plan to further develop our model to be more accurate, moving away from grayscale to regular images, and porting over to tensorflow and using their object-detection API.
+* Currently, if you hold a pose for 6 time units straight it will consider the command run - we plan to make this more consistent without having to deal with random error in regards to our prediction output.
+
+Using a standard test-train split we can achieve an upwards of a 98% accuracy with testing data. Our test data size is relatively small with 30 images for validation, and 1173 images for our training data. Finally, after performing the evaluation on the test data, we focused on optimizing our algorithm for all environments. We may add a layer where we do background removal to remove the redundancy and error in the future.
 
 ## Remaining Goals / Challenges:
 With regards to our static image classification model, there are a few basic remaining challenges. Firstly, we did not get to implement all of the Malmo functionality required to truly execute the Naruto spells. By the final project, we hope to control the agent in a way that lives up to the name of our project. We do not anticipate this will be particularly difficult, and will simply require some additional effort on the Malmo side.
