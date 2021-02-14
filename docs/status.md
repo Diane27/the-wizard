@@ -11,18 +11,38 @@ title:  Status
 The Wizard attempts to control a Malmo agent through Naruto hand signs. In Naruto, there are several hand signs (tiger, bird, dog, etc.) that correspond to a certain spell. The Wizard will take in live camera input, utilize deep learning to classify that input as one of the 12 different Naruto hand signs, and instruct the agent to execute a corresponding action. Our final goal for this project is to build a model that can accurately classify not only static gestures, but continuous hand movements as well. However, for this first checkpoint, our model is only equipped to classify static images. 
 
 ## Approach:
-Throughout the development of The Wizard, we wanted to create a functional deep learning model with minimal overhead and the ease of simple design. Our output 
+Throughout the development of The Wizard, we wanted to create a functional deep learning model with minimal overhead and the ease of simple design. We did some research as to how the problem of gesture recognition was tackled in the past, and we found that it boiled down to two steps: image segmentation and image classification.
+
+In order to effectively filter the images to only capture our gestures, we started with a few simple steps. First, we established a ROI (region of interest) within the live camera input, and placed it in the top right corner, as seen below:
+<img src="assets/dragon_pic.png" width="50%">
+This was done with the hopes of reducing the amount of background noise when later isolating the hands. For example, if the box had been placed over the user’s body, it would be much harder to segment the image. Then, we used opencv to apply a threshold over the image in order to only capture the gestures. This resulted in images as shown below:
+<img src="assets/dragon_capture.jpg">
+Through this process, we manually created a dataset for our image classification model. To further prepare the data, we split the images up into test and train folders. We made sure to keep equal amounts of all class types within both folders.
+
+To classify these images as naruto hand signs, we utilized a convolution neural network, similar to the graphic below:
+<img src="assets/cnn.jpeg">
+
+This classification technique proved to produce the most accurate results. The snippet shows the internal workings of our model.
+<img src="assets/cnncode.png">
+
+The model allowed us to achieve high classification accuracy on naruto hand sign test dataset.
+
+The last step of our project was relating these predictions to the Malmo agent. For the purposes of this checkpoint, we kept the Malmo functionality somewhat barebones. We aimed to generate Malmo actions that intuitively follow from the Naruto hand signs. For example, the “fireball” hand sign simply lights the ground on fire with a flint and steel.
+<img src="assets/minecraft-action.png">
+
+To see more of the Malmo functionality, please check out our video for a more in-depth demo.
+
 
 ## Evaluation:
 One method of evaluation would be to test our models performance in different settings. Throughout the creation of the model, we noticed that models trained in one persons room with different camera specifications would result in different outputs on other peoples machines. To nullify the solution our code allows the creation of test and training data.
 
-<img src="assets/hand_capture.png"/>
+<img src="assets/hand_capture.png" width="50%"/>
 
 In the figure above, we demonstrate one way we counteract this issue, as the image in the box is a fireball and we have used black gloves to test and see how this works within the model. By training the model on varying data, we can determine the loss and accuracy of the model per epoch. 
 * Currently there are five different complex hand signals that we use to determine (jutsu’s) or “commands” for Steve to perform.
 * Bird, Tiger, Horse, Dragon, Fireball (Sasuke’s signature ability).
 
-<img src="assets/hand-signs"/>
+<img src="assets/hand-signs.png"/>
 
 * In the future we plan to implement more methods and jutsu’s into our network. 
 * In addition, we plan to further develop our model to be more accurate, moving away from grayscale to regular images, and porting over to tensorflow and using their object-detection API.
