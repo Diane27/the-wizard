@@ -68,7 +68,7 @@ We will also need a way of parsing this new data format, and will need to modify
 
 ## Resources used:
 Here are some of the resources that helped us in this project
-* [https://keras.io/api/layers/convolution_layers/convolution2d/]
-* [https://www.kaggle.com/vikranthkanumuru/naruto-hand-sign-dataset]
-* [https://www.kaggle.com/vikranthkanumuru/naruto-hand-sign-detection-fastai-using-vgg19]
-* [https://data-flair.training/blogs/sign-language-recognition-python-ml-opencv/]
+* [Keras docuentation: Conv2D layer](https://keras.io/api/layers/convolution_layers/convolution2d)
+* [Naruto hand sign dataset](https://www.kaggle.com/vikranthkanumuru/naruto-hand-sign-dataset)
+* [Naruto hand sgn fast detection FastAI](https://www.kaggle.com/vikranthkanumuru/naruto-hand-sign-detection-fastai-using-vgg19)
+* [Sign language recognition using Python & OpenCV](https://data-flair.training/blogs/sign-language-recognition-python-ml-opencv)
