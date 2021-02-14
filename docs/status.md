@@ -16,7 +16,7 @@ Throughout the development of The Wizard, we wanted to create a functional deep 
 ## Evaluation:
 One method of evaluation would be to test our models performance in different settings. Throughout the creation of the model, we noticed that models trained in one persons room with different camera specifications would result in different outputs on other peoples machines. To nullify the solution our code allows the creation of test and training data.
 
-<img src="assets/hand_capture"/>
+<img src="assets/hand_capture.png"/>
 
 In the figure above, we demonstrate one way we counteract this issue, as the image in the box is a fireball and we have used black gloves to test and see how this works within the model. By training the model on varying data, we can determine the loss and accuracy of the model per epoch. 
 * Currently there are five different complex hand signals that we use to determine (jutsu’s) or “commands” for Steve to perform.
