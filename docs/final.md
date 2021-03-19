@@ -10,7 +10,7 @@ title:  Final
 ## Project Summary:
 The Wizard attempts to control a Malmo agent through Naruto hand signs. In Naruto, there are several hand signs (tiger, bird, dog, etc.) that correspond to a certain spell. The Wizard will take in live camera input, utilize deep learning to classify that input as one of the 12 different Naruto hand signs, and instruct the agent to execute a corresponding action. Initially, this project was built to accurately classify not only static gestures, but continuous hand movements as well. However, as time progressed we realized that it would be incredibly difficult to implement this feature within the given time. Instead we chose to implement a model that would remove the requirement of a region of interest and instead implemented detection of signals on a hand in picture basis.
 
-## Approach:
+## Approaches:
 Throughout the development of The Wizard, we wanted to create a functional deep learning model with minimal overhead and the ease of simple design. We did some research as to how the problem of gesture recognition was tackled in the past, and we found that it boiled down to two steps: image segmentation and image classification.
 
 In order to effectively filter the images to only capture our gestures, we started with a few simple steps. First, we established a ROI (region of interest) within the live camera input, and placed it in the top right corner, as seen below:
@@ -49,30 +49,7 @@ During the creation of our status report we initially had an incredibly naive an
 ## Evaluation:
 Throughout our project much of the criticism we received from our status report was in regards to how we would do our evaluation within Malmo. While we may have not addressed this we strongly believe that our Algorithm holds more importance over a mode of evaluation in Malmo and found that by testing the number of epochs and hypertuning our parameters over time we found an optimal solution towards detecting differences in our input.
 
-<img src="assets/hand_capture.png" width="50%"/>
-
-In the figure above, we demonstrate one way we counteract this issue, as the image in the box is a fireball and we have used black gloves to test and see how this works within the model. By training the model on varying data, we can determine the loss and accuracy of the model per epoch. 
-* Currently there are five different complex hand signals that we use to determine (jutsu’s) or “commands” for Steve to perform.
-* Bird, Tiger, Horse, Dragon, Fireball (Sasuke’s signature ability).
-
-<img src="assets/hand-signs.jpg"/>
-
-* In the future we plan to implement more methods and jutsu’s into our network. 
-* In addition, we plan to further develop our model to be more accurate, moving away from grayscale to regular images, and porting over to tensorflow and using their object-detection API.
-* Currently, if you hold a pose for 6 time units straight it will consider the command run - we plan to make this more consistent without having to deal with random error in regards to our prediction output.
-
-Using a standard test-train split we can achieve an upwards of a 98% accuracy with testing data. Our test data size is relatively small with 30 images for validation, and 1173 images for our training data. Finally, after performing the evaluation on the test data, we focused on optimizing our algorithm for all environments. We may add a layer where we do background removal to remove the redundancy and error in the future.
-
-## Remaining Goals / Challenges:
-With regards to our static image classification model, there are a few basic remaining challenges. Firstly, we did not get to implement all of the Malmo functionality required to truly execute the Naruto spells. By the final project, we hope to control the agent in a way that lives up to the name of our project. We do not anticipate this will be particularly difficult, and will simply require some additional effort on the Malmo side.
-
-Secondly, while our model is highly accurate with normal lighting and a clear background, different lighting conditions and noisier backgrounds give the model some difficulty. There are a couple different ways we can combat this problem, starting with collecting more data. Thus far in this project, we have trained the model using data that we have generated. However, most of this image data was captured around roughly the same time, so there is not much variance in the images. Gathering more data, whether it be through online sources, or by making more ourselves, will help the model make its classifications. Thus far, we have already seen major improvements in accuracy after feeding in more training data. Another way we can solve this problem is by utilizing better image segmentation techniques when isolating the user’s hands from the background. We don’t anticipate this to be very difficult, as opencv offers a variety of functions that can help with this problem. For example, we can attempt to isolate the hands through edge detection in addition to our existing image segmentation techniques.
-
-Our biggest remaining challenge will be to adjust our model to classify continuous motions. This remaining portion of our project presents issues on multiple ends. We will need a new data set consisting of GIF or video-like content in order to train our model. While generating data may take an immense amount of time, it can be accomplished through our collective efforts. 
-
-We will also need a way of parsing this new data format, and will need to modify our classification process in order to fit the new data type. In terms of the magnitude of changes that we must perform, this seems like a problematic task. However, we have some ideas as to how we can attempt to overcome these difficulties. If we treat a video as a series of frames, we can attempt to split up the video into chunks, and sample a frame from each chunk. Then, we can retrain our model to look for different image patterns at different times. Finally, we can use this retrained model to classify each section, and then average across the different assigned labels to classify the entire clip. While this may seem like a somewhat rudimentary approach, it is worth a try as we can use parts of our existing model to do so. However, if this fails, we can look into some of the existing research into this area and try to follow their examples.
-
-## Resources used:
+## References:
 Here are some of the resources that helped us in this project
 * [Keras documentation: Conv2D layer](https://keras.io/api/layers/convolution_layers/convolution2d)
 * [Naruto hand sign dataset](https://www.kaggle.com/vikranthkanumuru/naruto-hand-sign-dataset)
