@@ -34,7 +34,7 @@ Initially we began with using a simple keras CNN or Convolutional Neural Network
 
 First we took the dataset we created and used labelimg to create json files adjacent to each jpeg image we captured. labelimg allowed us to manually create boxes around each image and create json output that the object detection API can read.
 
-(example image of labeling)
+<img src="assets/labelImg.png">
 
 Next we chose a version of my_ssd_mobnet to use with the Tensorflow Object Detection API and modified the pipeline.config file with the appropriate parameters. Then we trained the model for {10k, 20k, and 30k} epochs and noticed that 10k was underfitting the model and that 30k was overfitting the model aggressively.
 
