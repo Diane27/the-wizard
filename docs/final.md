@@ -5,7 +5,7 @@ title:  Final
 
 # {{ page.title }}
 
-<iframe src="https://spark.adobe.com/video/3di9v2kcH6UWh/embed"  width="960" height="540" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://spark.adobe.com/video/N6nPyeY2ELnsa/embed"  width="960" height="540" frameborder="0" allowfullscreen></iframe>
 
 ## Project Summary:
 The Wizard attempts to control a Malmo agent through Naruto hand signs. In Naruto, there are several hand signs (tiger, bird, dog, etc.) that correspond to a certain spell. The Wizard will take in live camera input, utilize deep learning to classify that input as one of the 12 different Naruto hand signs, and instruct the agent to execute a corresponding action. Initially, this project was built to accurately classify not only static gestures, but continuous hand movements as well. However, as time progressed we realized that it would be incredibly difficult to implement this feature within the given time. Instead we chose to implement a model that would remove the requirement of a region of interest and instead implemented detection of signals on a hand in picture basis.
@@ -31,6 +31,7 @@ This classification technique proved to produce the most accurate results. The s
 
 Initially we began with using a simple keras CNN or Convolutional Neural Network and found that when there was no hand in the ROI, that our algorithm would still produce output. This is when our team realized that a simple framework like the one we had created wouldn't cut it. With the Tensorflow Object Detection API, we created a model that is accurate up to a certain extent with less classes and more features. 
 
+<img src="assets/tf-object-detection.jpg">
 
 First we took the dataset we created and used labelimg to create json files adjacent to each jpeg image we captured. labelimg allowed us to manually create boxes around each image and create json output that the object detection API can read.
 
@@ -38,16 +39,14 @@ First we took the dataset we created and used labelimg to create json files adja
 
 Next we chose a version of my_ssd_mobnet to use with the Tensorflow Object Detection API and modified the pipeline.config file with the appropriate parameters. Then we trained the model for {10k, 20k, and 30k} epochs and noticed that 10k was underfitting the model and that 30k was overfitting the model aggressively.
 
-(put a chart that shows this.).
+<img src="assets/ssd_diagram.png">
 
 During the creation of our status report we initially had an incredibly naive and simple implementation of Naruto style “jutsu” mechanics in regards to the result of activating those spells. To quell that issue, we implemented a way that would target the closest “mob” or NPC with the spell. In addition, we added a plethora of spells that would stay true to how it worked in the Naruto Anime by making it combinations of signs instead of one sign.
 
-(show different spells)
-(/ summon lightning (chidori))
-(/ summon dog (dog dude from naruto)
-
 ## Evaluation:
 Throughout our project much of the criticism we received from our status report was in regards to how we would do our evaluation within Malmo. While we may have not addressed this we strongly believe that our Algorithm holds more importance over a mode of evaluation in Malmo and found that by testing the number of epochs and hypertuning our parameters over time we found an optimal solution towards detecting differences in our input.
+
+In order to see the level of training required to get an accurate model we tested our dataset (however many images we had) over 10k,20k, and 30k epochs. We found that after 10k epochs we had an 89% test accuracy, at 20k we had a 93% accuracy and at 30k we had an accuracy of 78%. Due to this overfitting issue we decided to move forward with a trained model at 20k epochs.
 
 ## References:
 Here are some of the resources that helped us in this project
