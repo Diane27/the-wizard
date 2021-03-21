@@ -39,7 +39,7 @@ First we took the dataset we created and used labelimg to create json files adja
 
 Next we chose a version of my_ssd_mobnet to use with the Tensorflow Object Detection API and modified the pipeline.config file with the appropriate parameters. Then we trained the model for {10k, 20k, and 30k} epochs and noticed that 10k was underfitting the model and that 30k was overfitting the model aggressively.
 
-<img src="assets/ssd_diagram.png">
+<img src="assets/ssd-diagram.png">
 
 During the creation of our status report we initially had an incredibly naive and simple implementation of Naruto style “jutsu” mechanics in regards to the result of activating those spells. To quell that issue, we implemented a way that would target the closest “mob” or NPC with the spell. In addition, we added a plethora of spells that would stay true to how it worked in the Naruto Anime by making it combinations of signs instead of one sign.
 
